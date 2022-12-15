@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block main %}
+
+	<section class="companies-info">
+			<div class="container">
+				<div class="company-title">
+					<h3>Your Frinds</h3>
+				</div><!--company-title end-->
+				<div class="companies-list">
+					<div class="row">
+
+						{% for idn,name in friends.items() %}
+						<div class="col-lg-3 col-md-4 col-sm-6 col-12">
+							<div class="company_profile_info">
+								<div class="company-up-info">
+									<img src="http://via.placeholder.com/91x91" alt="">
+									<h3>{{name[0]}}</h3>
+
+									<ul>
+										<li><a href="../profile/{{idn}}" title="" class="follow">View Profile</a></li>
+										<br><li><a href="" class="text-danger">{{name[1]}}</a></li>
+
+									</ul>
+								</div>
+
+							</div><!--company_profile_info end-->
+						</div>
+						{% endfor %}
+					</div>
+				</div><!--companies-list end-->
+
+			</div>
+		</section><!--companies-info end-->
+
+{% endblock %}

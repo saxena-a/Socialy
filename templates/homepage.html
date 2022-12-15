@@ -1,0 +1,206 @@
+{% extends 'base.html' %}
+{% block main %}
+
+<body>
+
+
+	<div class="wrapper">
+
+
+
+
+
+		<main>
+			<div class="main-section">
+				<div class="container">
+					<div class="main-section-data">
+						<div class="row">
+							<div class="col-lg-3 col-md-4 pd-left-none no-pd">
+								<div class="main-left-sidebar no-margin">
+									<div class="user-data full-width">
+										<div class="user-profile">
+											<div class="username-dt">
+												<div class="usr-pic">
+													<img src="http://via.placeholder.com/100x100" alt="">
+												</div>
+											</div><!--username-dt end-->
+											<div class="user-specs">
+												<h3>{{username}}</h3>
+
+											</div>
+										</div><!--user-profile end-->
+										<ul class="user-fw-status">
+											<li>
+												<h4>Friends</h4>
+												<span>{{friendsCount}}</span><br>
+												<a href="/myfriends">View All</a>
+											</li>
+
+<!--											<li>-->
+<!--												<a href="#" title="">View Profile</a>-->
+<!--											</li>-->
+										</ul>
+									</div><!--user-data end-->
+
+									<div class="suggestions full-width">
+										<div class="sd-title">
+											<h3>Suggestions</h3>
+											<i class="la la-ellipsis-v"></i>
+										</div><!--sd-title end-->
+										<div class="suggestions-list">
+
+												{% for idn,name in friendNames.items() %}
+
+															<div class="user-profy">
+													<img src="http://via.placeholder.com/57x57" alt="">
+													<h3>{{name[:-1]}}</h3>
+													<span>{{name[-1]}} degree friend</span>
+
+													<ul>
+														<li><a href="sendrequest/{{idn}}" title="" class="followw">Add</a></li>
+													</ul>
+
+												</div>
+
+
+												{% endfor %}
+
+
+											<div class="view-more">
+												<a href="/friends" title="">View More</a>
+											</div>
+										</div><!--suggestions-list end-->
+									</div><!--suggestions end-->
+
+								</div><!--main-left-sidebar end-->
+							</div>
+							<div class="col-lg-6 col-md-8 no-pd">
+								<div class="main-ws-sec">
+									<div class="post-topbar">
+										<div class="user-picy">
+											<img src="http://via.placeholder.com/100x100" alt="">
+										</div>
+										<div class="post-st">
+											<ul>
+
+												<li><a class="post-jb active" href="#" title="">I'm feeling excited
+													<!doctype html>
+													<html lang="en">
+													<head>
+														<meta charset="UTF-8">
+														<meta name="viewport"
+															  content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+														<meta http-equiv="X-UA-Compatible" content="ie=edge">
+														<title>Document</title>
+													</head>
+													<body>
+													
+													</body>
+													</html></a></li>
+											</ul>
+										</div><!--post-st end-->
+									</div><!--post-topbar end-->
+									<div class="posts-section">
+										{% for ids,post in postsdict.items() %}
+										<div class="post-bar">
+											<div class="post_topbar">
+												<div class="usy-dt">
+													<img src="http://via.placeholder.com/50x50" alt="">
+													<div class="usy-name">
+														<h3>{{post[2]}}</h3>
+														<span><img src="images/clock.png" alt="">3 min ago</span>
+													</div>
+												</div>
+
+											</div>
+
+											<div class="job_descp">
+												<h3>{{post[1]}}</h3>
+
+												<p>{{post[0]}}</p>
+
+											</div>
+
+										</div><!--post-bar end-->
+										{% endfor %}
+
+
+									</div><!--posts-section end-->
+								</div><!--main-ws-sec end-->
+							</div>
+							<div class="col-lg-3 pd-right-none no-pd">
+								<div class="right-sidebar">
+									<div class="widget widget-about">
+										<img src="images/wd-logo.png" alt="">
+										<h3>Socialy</h3>
+										<span>Lets make friends</span>
+										<div class="sign_link">
+
+											<a href="/friends" title="">View Profiles</a>
+										</div>
+									</div><!--widget-about end-->
+
+
+									<div class="widget suggestions full-width">
+										<div class="sd-title">
+											<h3>Pending Friend Requests</h3>
+											<i class="la la-ellipsis-v"></i>
+										</div><!--sd-title end-->
+										<div class="suggestions-list">
+											{% for i in pendingRequests %}
+											<div class="suggestion-usd">
+												<img src="http://via.placeholder.com/35x35" alt="">
+												<div class="sgt-text">
+													<h4>{{i[1]}}</h4>
+													<span><a href="/profile/{{i[0]}}">View Profile</a></span>
+													<br><br>
+													<span><a href="accept/{{i[0]}}" style="margin-right:12px; font-size:18px" class="text-success">Accept</a></span> <span> <a href="reject/{{i[0]}}" style="font-size:18px" class="text-danger">Reject</a> </span>
+												</div>
+											{% endfor %}
+											</div>
+										</div><!--suggestions-list end-->
+									</div>
+								</div><!--right-sidebar end-->
+							</div>
+						</div>
+					</div><!-- main-section-data end-->
+				</div>
+			</div>
+		</main>
+
+
+		<div class="post-popup job_post">
+			<div class="post-project">
+				<h3>What's in your mind?</h3>
+				<div class="post-project-fields">
+					<form method="post">
+						<div class="row">
+							<div class="col-lg-12">
+								<input type="text" name="title" placeholder="Title" required>
+							</div>
+
+
+
+							<div class="col-lg-12">
+								<textarea name="description" placeholder="Description" required></textarea>
+							</div>
+							<div class="col-lg-12">
+								<ul>
+									<li><button class="active" name="post" type="submit" value="post">Post</button></li>
+
+								</ul>
+							</div>
+						</div>
+					</form>
+				</div><!--post-project-fields end-->
+				<a href="#" title=""><i class="la la-times-circle-o"></i></a>
+			</div><!--post-project end-->
+		</div><!--post-project-popup end-->
+	</div><!--theme-layout end-->
+
+
+
+
+</body>
+
+{% endblock %}
