@@ -14,6 +14,7 @@ app.secret_key = 'secret'
 allUsers = {}
 friendNames = {}
 
+
 @app.route("/",methods=('GET','POST'))
 def index():
     try:
