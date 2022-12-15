@@ -1,18 +1,18 @@
-    from flask import Flask, render_template,request, url_for, flash, redirect, session
-    from firebasecred import config
-    import pyrebase
-    from friends import getFriends
-    import time
+from flask import Flask, render_template,request, url_for, flash, redirect, session
+from firebasecred import config
+import pyrebase
+from friends import getFriends
+import time
 
 
-    ts = time.time()
-    app = Flask(__name__)
-    firebase = pyrebase.initialize_app(config)
-    auth = firebase.auth()
-    database = firebase.database()
-    app.secret_key = 'secret'
-    allUsers = {}
-    friendNames = {}
+ts = time.time()
+app = Flask(__name__)
+firebase = pyrebase.initialize_app(config)
+auth = firebase.auth()
+database = firebase.database()
+app.secret_key = 'secret'
+allUsers = {}
+friendNames = {}
 
 def socialy():
     app = Flask(__name__)
