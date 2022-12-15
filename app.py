@@ -205,6 +205,6 @@ def myfriends():
                 friends[i][1] = "Pending"
     return render_template('myfriends.html',friends=friends)
 
-def start():
-    if __name__ == "__main__":
-        app.run()
+
+if __name__ == "__main__":
+    app.run()
