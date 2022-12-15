@@ -14,8 +14,8 @@ app.secret_key = 'secret'
 allUsers = {}
 friendNames = {}
 
-def socialy():
-    app = Flask(__name__)
+def create_app():
+    app= Flask(__name__)
     return app
 
 @app.route("/",methods=('GET','POST'))
